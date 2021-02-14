@@ -1,0 +1,21 @@
+<router-outlet></router-outlet>
+
+<div [ngSwitch]="begin">
+
+    <form #form="ngForm" *ngSwitchCase="false" (ngSubmit)="poslitotam()">
+        <input placeholder="Počet Karet" #number="ngModel" [(ngModel)]="input" [appMax]="8" [appMin]="1" name="count" required type="number">
+        <button [disabled]="form.invalid"> Start</button>
+    </form>
+    <h1>^^^^^ Tady to je, kdybys neviděl, okáčko?</h1>
+    <h1>V klubech lezu po stropě, říkej mi spider z**d </h1>
+    <h1>Ahoj ahoj, tady strejda Opat, už nebudu mluvit sprostě, užijte si to s bráchou :) drž h*bu ty sv**ě </h1>
+
+
+
+    <div class="d-flex flex-row flex-wrap justify-content-between" style="width: 100vw;" *ngSwitchCase="true">
+        <div *ngFor="let Karta of karticky" class="border p-10 " (click)="otocit(Karta)"
+             style="cursor: pointer; height: 100px; width: 100px; overflow: hidden">
+            <span *ngIf="Karta.otoceno" class=" bg-info mb-3">{{Karta.ikonka}}</span>
+        </div>
+    </div>
+</div>
